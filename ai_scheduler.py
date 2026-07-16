@@ -55,18 +55,6 @@ class AudioModel(AIModel):
         return f"语音识别结果: {input_data},耗时：{cost}秒"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # 2. 调度器 Scheduler
 # 2.1 调度器基类
 class Scheduler:
@@ -136,8 +124,8 @@ def write_report(records,cost_1,cost_2,cost_3,filename="report.txt"):
 
 
 # 3. 主程序 main
-if __name__ == "__main__":
-    scheduler = Scheduler() #  创建模型
+def main():
+    scheduler = Scheduler() #  调度器
     text_model = TextModel("GPT-4", "text") #  创建文本模型
     image_model = ImageModel("豆包", "image") # 创建图像模型
     audio_model = AudioModel("小爱同学","audio")# 创建语音模型
@@ -177,3 +165,5 @@ if __name__ == "__main__":
 
     r = write_report(scheduler.record,cost_1,cost_2,cost_3)#将日志写入文件
     
+if __name__ == '__main__':
+    main()
